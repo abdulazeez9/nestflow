@@ -7,7 +7,7 @@ export default function RootLayout() {
   return (
     <View className="flex-1 items-center bg-navy">
       <View className="flex-1 w-full max-w-md overflow-hidden">
-        <StatusBar style="auto" />
+        <StatusBar style="dark" />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="onboarding" />

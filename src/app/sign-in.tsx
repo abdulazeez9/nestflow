@@ -13,14 +13,12 @@ export default function SignIn() {
   useEffect(() => {
     const checkFirstVisit = async () => {
       try {
-        // 1. Check if the demo modal has been shown before
         const hasSeenModal = await AsyncStorage.getItem("has_seen_demo_modal");
         if (!hasSeenModal) {
           setIsModalVisible(true);
           await AsyncStorage.setItem("has_seen_demo_modal", "true");
         }
 
-        // 2. Pre-fill name if it was previously saved
         const savedName = await AsyncStorage.getItem("user_name");
         if (savedName) {
           setName(savedName);
@@ -47,7 +45,7 @@ export default function SignIn() {
 
   return (
     <Screen>
-      <View className="flex-1 justify-between p-6">
+      <View className="flex-1 p-6">
         {/* Info Icon Button (Top Right) */}
         <View className="items-end">
           <Pressable
@@ -63,41 +61,47 @@ export default function SignIn() {
           </Pressable>
         </View>
 
-        {/* Header & Logo */}
-        <View className="items-center gap-4">
-          <AppLogo textColor="text-navy" />
-          <Text className="text-2xl font-bold text-navy text-center">
-            Welcome to Nestflow
-          </Text>
-          <Text className="text-content-placeholder text-center text-sm px-4">
-            Enter your name to personalize your tour experience.
-          </Text>
-        </View>
-
-        {/* Input & Action */}
-        <View className="gap-4 w-full">
-          <View className="flex-row items-center border border-gray-300 rounded-xl px-4 py-3 bg-white">
-            <Ionicons name="person" size={20} className="text-gray-400 mr-3" />
-            <TextInput
-              placeholder="Enter your full name"
-              value={name}
-              onChangeText={setName}
-              className="flex-1 text-base text-navy"
-              placeholderTextColor="#9CA3AF"
-              autoCapitalize="words"
-              returnKeyType="done"
-              onSubmitEditing={handleContinue}
-            />
+        <View className="flex-1 justify-center items-center gap-8">
+          {/* Header & Logo */}
+          <View className="items-center gap-4">
+            <AppLogo textColor="text-navy" />
+            <Text className="text-2xl font-bold text-navy text-center">
+              Welcome to Nestflow
+            </Text>
+            <Text className="text-content-placeholder text-center text-sm px-4">
+              Enter your name to personalize your tour experience.
+            </Text>
           </View>
 
-          <Pressable
-            onPress={handleContinue}
-            className="bg-primary rounded-xl p-4 items-center"
-          >
-            <Text className="text-white font-semibold text-base">
-              Continue to App
-            </Text>
-          </Pressable>
+          {/* Input & Action */}
+          <View className="gap-4 w-full">
+            <View className="flex-row items-center border border-gray-300 rounded-xl px-4 py-3 bg-white">
+              <Ionicons
+                name="person"
+                size={20}
+                className="text-gray-400 mr-3"
+              />
+              <TextInput
+                placeholder="Enter your full name"
+                value={name}
+                onChangeText={setName}
+                className="flex-1 text-base text-navy"
+                placeholderTextColor="#9CA3AF"
+                autoCapitalize="words"
+                returnKeyType="done"
+                onSubmitEditing={handleContinue}
+              />
+            </View>
+
+            <Pressable
+              onPress={handleContinue}
+              className="bg-primary rounded-xl p-4 items-center"
+            >
+              <Text className="text-white font-semibold text-base">
+                Continue to App
+              </Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Informational Popup / Modal */}
