@@ -55,7 +55,7 @@ export default function PropertyDetailScreen() {
   };
 
   return (
-    <Screen>
+    <>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 120 }}
@@ -81,7 +81,7 @@ export default function PropertyDetailScreen() {
           </ScrollView>
 
           {/* Top actions */}
-          <View className="absolute left-4 right-4 top-4 flex-row items-center justify-between">
+          <View className="absolute left-4 right-4 top-10 flex-row items-center justify-between">
             <Pressable
               onPress={() => router.back()}
               className="h-10 w-10 items-center justify-center rounded-full bg-background/90 shadow-sm"
@@ -252,6 +252,6 @@ export default function PropertyDetailScreen() {
           </Text>
         </Pressable>
       </View>
-    </Screen>
+    </>
   );
 }

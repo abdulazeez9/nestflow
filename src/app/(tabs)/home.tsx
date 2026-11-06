@@ -1,11 +1,8 @@
 import PropertyCard from "@/components/Card";
+import Search from "@/components/Search";
 import Screen from "@/components/ui/Screen";
-import { properties as initialProperties } from "@/constants/data";
-import { Property, PropertyCategory } from "@/types/property";
+import { useHome } from "@/hooks/useHome";
 import { Ionicons } from "@expo/vector-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useRouter } from "expo-router";
-import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   FlatList,
   Pressable,
@@ -15,66 +12,23 @@ import {
   View,
 } from "react-native";
 
-type FilterCategory = PropertyCategory | "All";
-
 export default function HomeScreen() {
-  const router = useRouter();
+  const {
+    userName,
+    categories,
+    selectedCategory,
+    setSelectedCategory,
+    searchQuery,
+    setSearchQuery,
+    refreshing,
+    onRefresh,
+    filteredProperties,
+    handleFavoriteToggle,
+    handlePropertyPress,
+    openFilter,
+  } = useHome();
 
-  const [userName, setUserName] = useState("Guest");
-  const [properties, setProperties] = useState<Property[]>(initialProperties);
-  const [selectedCategory, setSelectedCategory] =
-    useState<FilterCategory>("All");
-  const [refreshing, setRefreshing] = useState(false);
-
-  const categories = useMemo(() => {
-    const uniqueCategories = Array.from(
-      new Set(properties.map((p) => p.category)),
-    ) as PropertyCategory[];
-    return ["All", ...uniqueCategories] as FilterCategory[];
-  }, [properties]);
-
-  const fetchUserData = async () => {
-    try {
-      const savedName = await AsyncStorage.getItem("user_name");
-      if (savedName) {
-        setUserName(savedName);
-      }
-    } catch (error) {
-      console.error("Error fetching user name:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUserData();
-  }, []);
-
-  const onRefresh = useCallback(async () => {
-    setRefreshing(true);
-    await Promise.all([
-      fetchUserData(),
-      new Promise((resolve) => setTimeout(resolve, 1200)),
-    ]);
-    setRefreshing(false);
-  }, []);
-
-  const handleFavoriteToggle = (id: string, isSaved: boolean) => {
-    setProperties((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, isSaved } : item)),
-    );
-  };
-
-  const handlePropertyPress = (property: Property) => {
-    router.push({
-      pathname: "/property/[id]",
-      params: { id: property.id },
-    });
-  };
-
-  const filteredProperties = useMemo(() => {
-    if (selectedCategory === "All") return properties;
-    return properties.filter((p) => p.category === selectedCategory);
-  }, [properties, selectedCategory]);
-
+  // Render the header section with greeting, search bar, and category chips
   const renderHeader = () => (
     <View className="mb-4 gap-6">
       {/* Header / Greeting */}
@@ -86,10 +40,16 @@ export default function HomeScreen() {
           <Text className="text-2xl font-bold text-navy">{userName}</Text>
         </View>
 
-        <Pressable className="rounded-full bg-gray-100 p-3 dark:bg-slate-800">
-          <Ionicons name="notifications-outline" size={22} color="#0F172A" />
+        <Pressable className="rounded-full  p-3 dark:bg-slate-800">
+          <Ionicons name="notifications-outline" size={22} color="#FFFFFF" />
         </Pressable>
       </View>
+
+      <Search
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        onFilterPress={openFilter}
+      />
 
       {/* Dynamic Category Filter Chips */}
       <View>
@@ -149,7 +109,7 @@ export default function HomeScreen() {
             onFavoriteToggle={handleFavoriteToggle}
           />
         )}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={renderHeader()}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 32 }}
         refreshControl={
