@@ -43,7 +43,7 @@ function Chip({
     <Pressable
       onPress={onPress}
       className={`rounded-full border px-4 py-2 ${
-        selected ? "border-primary bg-primary" : "border-border bg-background"
+        selected ? "border-navy bg-navy" : "border-border bg-background"
       }`}
     >
       <Text

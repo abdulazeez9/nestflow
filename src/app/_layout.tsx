@@ -12,6 +12,7 @@ export default function RootLayout() {
           <Stack.Screen name="index" />
           <Stack.Screen name="onboarding" />
           <Stack.Screen name="sign-in" />
+          <Stack.Screen name="map" />
           <Stack.Screen name="(tabs)" />
         </Stack>
       </View>

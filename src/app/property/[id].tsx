@@ -1,5 +1,6 @@
 import Screen from "@/components/ui/Screen";
 import { properties } from "@/constants/data";
+import { useFavoritesStore } from "@/store/favoritesStore";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -10,6 +11,7 @@ import {
   Pressable,
   ScrollView,
   Text,
+  TouchableOpacity,
   useWindowDimensions,
   View,
 } from "react-native";
@@ -22,7 +24,8 @@ export default function PropertyDetailScreen() {
   const property = properties.find((p) => p.id === id);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isSaved, setIsSaved] = useState(property?.isSaved ?? false);
+  const isSaved = useFavoritesStore((s) => s.favorites.includes(id));
+  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   if (!property) {
     return (
@@ -90,7 +93,7 @@ export default function PropertyDetailScreen() {
             </Pressable>
 
             <Pressable
-              onPress={() => setIsSaved((prev) => !prev)}
+              onPress={() => toggleFavorite(property.id)}
               className="h-10 w-10 items-center justify-center rounded-full bg-background/90 shadow-sm"
             >
               <Ionicons
@@ -152,12 +155,22 @@ export default function PropertyDetailScreen() {
             </Text>
 
             <View className="flex-row items-center">
-              <Ionicons name="location-outline" size={16} color="#6B7280" />
-              <Text className="ml-1 flex-1 text-sm text-content-muted">
+              <TouchableOpacity
+                onPress={(e) => {
+                  e.stopPropagation();
+                  router.push("/map");
+                }}
+                activeOpacity={0.8}
+              >
+                <Ionicons name="location-outline" size={16} color="#6B7280" />
+              </TouchableOpacity>
+              <Text
+                numberOfLines={1}
+                className="ml-1 flex-1 text-sm text-content-muted"
+              >
                 {property.location.address}
               </Text>
             </View>
-
             <View className="flex-row items-center">
               <Ionicons name="star" size={14} color="#F97316" />
               <Text className="ml-1 text-sm font-bold text-content">

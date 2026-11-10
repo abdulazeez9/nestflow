@@ -1,8 +1,15 @@
+import { useFavoritesStore } from "@/store/favoritesStore";
 import { Property } from "@/types/property";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { useState } from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import { useRouter } from "expo-router";
+import {
+  GestureResponderEvent,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface PropertyCardProps {
   property: Property;
@@ -15,17 +22,22 @@ export default function PropertyCard({
   onPress,
   onFavoriteToggle,
 }: PropertyCardProps) {
-  const [isSaved, setIsSaved] = useState(property.isSaved ?? false);
+  const router = useRouter();
 
   const formatPrice = (amount: number, currency: string) => {
     const symbol = currency === "NGN" ? "₦" : "$";
     return `${symbol}${amount.toLocaleString()}`;
   };
 
-  const handleFavoritePress = () => {
-    const nextSavedState = !isSaved;
-    setIsSaved(nextSavedState);
-    onFavoriteToggle?.(property.id, nextSavedState);
+  const isSaved = useFavoritesStore((state) =>
+    state.favorites.includes(property.id),
+  );
+  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
+
+  const handleFavoritePress = (e: GestureResponderEvent) => {
+    e.stopPropagation();
+    toggleFavorite(property.id);
+    onFavoriteToggle?.(property.id, !isSaved);
   };
 
   return (
@@ -92,13 +104,23 @@ export default function PropertyCard({
         </View>
 
         <View className="mt-1 flex-row items-center">
-          <Ionicons name="location-outline" size={14} color="#6B7280" />
-          <Text
-            numberOfLines={1}
-            className="ml-1 flex-1 text-xs text-content-muted"
+          <TouchableOpacity
+            onPress={(e) => {
+              e.stopPropagation();
+              router.push("/map");
+            }}
+            activeOpacity={0.8}
+            hitSlop={8}
+            className="mt-1 flex-row items-center"
           >
-            {property.location.address}
-          </Text>
+            <Ionicons name="location-outline" size={14} color="#6B7280" />
+            <Text
+              numberOfLines={1}
+              className="ml-1 flex-1 text-xs text-content-muted"
+            >
+              {property.location.address}
+            </Text>
+          </TouchableOpacity>
         </View>
 
         <View className="mt-3.5 flex-row items-center justify-between border-y border-border py-2.5">

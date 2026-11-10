@@ -11,16 +11,12 @@ export interface PropertyLocation {
   address: string;
   city: string;
   state: string;
-  latitude?: number;
-  longitude?: number;
+  latitude: number;
+  longitude: number;
 }
 
 export type PropertyType =
-  | "Rent"
-  | "Sale"
-  | "Lease"
-  | "Shortlet"
-  | "Lease-to-Own";
+  "Rent" | "Sale" | "Lease" | "Shortlet" | "Lease-to-Own";
 
 export type PropertyCategory =
   | "Apartment"

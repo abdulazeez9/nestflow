@@ -28,7 +28,6 @@ export default function HomeScreen() {
     openFilter,
   } = useHome();
 
-  // Render the header section with greeting, search bar, and category chips
   const renderHeader = () => (
     <View className="mb-4 gap-6">
       {/* Header / Greeting */}
@@ -49,6 +48,7 @@ export default function HomeScreen() {
         value={searchQuery}
         onChangeText={setSearchQuery}
         onFilterPress={openFilter}
+        placeholder="Search for locations, properties, or agents etc."
       />
 
       {/* Dynamic Category Filter Chips */}
@@ -66,7 +66,7 @@ export default function HomeScreen() {
                 onPress={() => setSelectedCategory(cat)}
                 className={`rounded-full px-4 py-2 border ${
                   isActive
-                    ? "bg-primary border-primary"
+                    ? "bg-navy border-navy"
                     : "bg-background border-border"
                 }`}
               >
