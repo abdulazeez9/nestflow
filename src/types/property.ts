@@ -51,7 +51,7 @@ export interface Property {
   bathrooms: number;
   area: number;
   location: PropertyLocation;
-  images: string[];
+  images: number[];
   features: string[];
   rating: number;
   reviewsCount: number;

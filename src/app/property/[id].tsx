@@ -75,7 +75,7 @@ export default function PropertyDetailScreen() {
             {property.images.map((uri, index) => (
               <Image
                 key={`${uri}-${index}`}
-                source={{ uri }}
+                source={typeof uri === "number" ? uri : { uri }}
                 style={{ width, height: "100%" }}
                 contentFit="cover"
                 transition={250}
@@ -89,7 +89,7 @@ export default function PropertyDetailScreen() {
               onPress={() => router.back()}
               className="h-10 w-10 items-center justify-center rounded-full bg-background/90 shadow-sm"
             >
-              <Ionicons name="arrow-back" size={20} color="#0F172A" />
+              <Ionicons name="chevron-back" size={20} color="#0F172A" />
             </Pressable>
 
             <Pressable

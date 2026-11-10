@@ -47,8 +47,8 @@ export default function PropertyCard({
     >
       <View className="relative h-52 w-full bg-background-input">
         <Image
-          source={{ uri: property.images[0] }}
-          className="h-full w-full"
+          source={property.images[0]}
+          style={{ width: "100%", height: "100%" }}
           contentFit="cover"
           transition={250}
         />
@@ -164,7 +164,7 @@ export default function PropertyCard({
 
           <View className="flex-row items-center">
             <Image
-              source={{ uri: property.agent.avatar }}
+              source={property.agent.avatar}
               className="h-7 w-7 rounded-full bg-background-canvas"
               contentFit="cover"
             />

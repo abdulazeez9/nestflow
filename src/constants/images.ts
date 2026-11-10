@@ -9,6 +9,8 @@ import detachedHouse from "@/assets/images/detachedHouse.webp";
 import detachedHouse2 from "@/assets/images/detachedHouse2.webp";
 import duplex from "@/assets/images/duplex.webp";
 import duplex2 from "@/assets/images/duplex2.webp";
+import luxury_3_bedroom_apartment from "@/assets/images/luxury_3_bedroom_apartment.webp";
+import luxury_3_bedroom_apartment_lekki from "@/assets/images/luxury_3_bedroom_apartment_lekki.webp";
 import mansion from "@/assets/images/mansion.webp";
 import mansion2 from "@/assets/images/mansion2.webp";
 import onboarding from "@/assets/images/onboarding.webp";
@@ -20,7 +22,11 @@ import villa from "@/assets/images/villa.webp";
 import villa2 from "@/assets/images/villa2.webp";
 
 export default {
-  apartment: [apartment],
+  apartment: [
+    apartment,
+    luxury_3_bedroom_apartment,
+    luxury_3_bedroom_apartment_lekki,
+  ],
   penthouse: [penthouse],
   onboarding: [onboarding, onboarding2, onboarding3],
   ranchHouse: [ranchHouse],

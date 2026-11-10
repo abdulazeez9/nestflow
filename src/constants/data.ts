@@ -1,3 +1,4 @@
+import images from "@/constants/images";
 import { Property } from "@/types/property";
 
 export const properties: Property[] = [
@@ -19,10 +20,7 @@ export const properties: Property[] = [
       latitude: 6.4474,
       longitude: 3.4723,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
-    ],
+    images: [images.apartment[0], images.apartment[1], images.apartment[2]],
     features: [
       "Swimming Pool",
       "24/7 Security",
@@ -63,10 +61,7 @@ export const properties: Property[] = [
       latitude: 6.4392,
       longitude: 3.5331,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-    ],
+    images: [...images.apartment],
     features: [
       "Boys' Quarters",
       "Smart Home",
@@ -107,10 +102,7 @@ export const properties: Property[] = [
       latitude: 9.0765,
       longitude: 7.4898,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600210492493-0946911123ea",
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
-    ],
+    images: [...images.apartment],
     features: [
       "Fully Furnished",
       "Wi-Fi",
@@ -151,10 +143,7 @@ export const properties: Property[] = [
       latitude: 7.4325,
       longitude: 3.9167,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
-    ],
+    images: [...images.apartment],
     features: [
       "Water Supply",
       "Gated Compound",
@@ -195,10 +184,7 @@ export const properties: Property[] = [
       latitude: 6.4531,
       longitude: 3.4332,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
-    ],
+    images: [...images.mansion],
     features: [
       "Private Swimming Pool",
       "Cinema Room",
@@ -240,10 +226,7 @@ export const properties: Property[] = [
       latitude: 6.4281,
       longitude: 3.4219,
     },
-    images: [
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
-    ],
+    images: [...images.apartment],
     features: [
       "Conference Room",
       "Central Air Conditioning",
@@ -284,10 +267,7 @@ export const properties: Property[] = [
       latitude: 9.1101,
       longitude: 7.4056,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-    ],
+    images: [...images.apartment],
     features: [
       "Flexible Payment Plan",
       "Fitted Kitchen",
@@ -328,10 +308,7 @@ export const properties: Property[] = [
       latitude: 6.5841,
       longitude: 3.9834,
     },
-    images: [
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
-      "https://images.unsplash.com/photo-1510798831971-661eb04b3739",
-    ],
+    images: [...images.apartment],
     features: [
       "Registered Survey",
       "Good Road Network",
@@ -372,10 +349,7 @@ export const properties: Property[] = [
       latitude: 6.5158,
       longitude: 3.3711,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
-    ],
+    images: [...images.apartment],
     features: [
       "Modern Interior",
       "Fitted Kitchen",
@@ -416,10 +390,7 @@ export const properties: Property[] = [
       latitude: 7.3575,
       longitude: 3.8553,
     },
-    images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
-    ],
+    images: [...images.apartment],
     features: [
       "Spacious Compound",
       "Modern Kitchen",
@@ -461,10 +432,7 @@ export const properties: Property[] = [
       latitude: 6.4491,
       longitude: 3.4356,
     },
-    images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
-    ],
+    images: [...images.apartment],
     features: ["Serviced", "Swimming Pool", "Gym", "24/7 Power", "Concierge"],
     rating: 4.8,
     reviewsCount: 22,
@@ -499,10 +467,7 @@ export const properties: Property[] = [
       latitude: 6.4667,
       longitude: 3.5667,
     },
-    images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
-    ],
+    images: [...images.apartment],
     features: [
       "Fitted Kitchen",
       "Private Garden",
@@ -543,10 +508,7 @@ export const properties: Property[] = [
       latitude: 6.4419,
       longitude: 3.4912,
     },
-    images: [
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0",
-    ],
+    images: [...images.apartment],
     features: [
       "Fully Furnished",
       "Netflix",
@@ -587,10 +549,7 @@ export const properties: Property[] = [
       latitude: 9.0333,
       longitude: 7.5167,
     },
-    images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
-    ],
+    images: [...images.apartment],
     features: [
       "Boys' Quarters",
       "Swimming Pool",
@@ -631,10 +590,7 @@ export const properties: Property[] = [
       latitude: 6.4478,
       longitude: 3.3592,
     },
-    images: [
-      "https://images.unsplash.com/photo-1553413077-190dd305871c",
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d",
-    ],
+    images: [...images.apartment],
     features: [
       "Loading Bay",
       "High Ceiling",
@@ -675,10 +631,7 @@ export const properties: Property[] = [
       latitude: 6.5,
       longitude: 3.35,
     },
-    images: [
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858",
-    ],
+    images: [...images.apartment],
     features: [
       "Tiled Floors",
       "Parking Space",
@@ -719,10 +672,7 @@ export const properties: Property[] = [
       latitude: 9.0833,
       longitude: 7.4833,
     },
-    images: [
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
-      "https://images.unsplash.com/photo-1613977257363-707ba9348227",
-    ],
+    images: [...images.apartment],
     features: [
       "Private Pool",
       "Home Cinema",
@@ -764,10 +714,7 @@ export const properties: Property[] = [
       latitude: 7.25,
       longitude: 5.195,
     },
-    images: [
-      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-    ],
+    images: [...images.apartment],
     features: [
       "Prepaid Meter",
       "Water Supply",
@@ -808,10 +755,7 @@ export const properties: Property[] = [
       latitude: 6.6018,
       longitude: 3.3515,
     },
-    images: [
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
-      "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5",
-    ],
+    images: [...images.apartment],
     features: [
       "Shop Front",
       "Prepaid Meter",
@@ -852,10 +796,7 @@ export const properties: Property[] = [
       latitude: 4.8333,
       longitude: 6.9833,
     },
-    images: [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
-    ],
+    images: [...images.apartment],
     features: [
       "Borehole",
       "Fenced Compound",
