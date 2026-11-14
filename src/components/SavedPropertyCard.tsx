@@ -46,8 +46,8 @@ export default function SavedPropertyCard({
       {/* Left: image */}
       <View className="relative h-32 w-32 bg-background-input">
         <Image
-          source={{ uri: property.images[0] }}
-          className="h-full w-full"
+          source={property.images[0]}
+          style={{ width: "100%", height: "100%" }}
           contentFit="cover"
           transition={250}
         />

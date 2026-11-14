@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "nestflow",
+    "name": "NestFlow",
     "slug": "nestflow",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -42,6 +42,16 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "fb46ac05-51a8-45d5-912e-bca02e7c654b"
+      }
     }
   }
 }

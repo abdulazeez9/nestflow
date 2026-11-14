@@ -24,7 +24,7 @@ export default function SignIn() {
           setName(savedName);
         }
       } catch (error) {
-        console.error("Error reading storage:", error);
+        throw new Error("Error checking first visit: " + error);
       }
     };
 
@@ -36,10 +36,9 @@ export default function SignIn() {
 
     try {
       await AsyncStorage.setItem("user_name", guestName);
-      console.log("Logged in as:", guestName);
       router.replace("/(tabs)/home");
     } catch (error) {
-      console.error("Error saving user name:", error);
+      throw new Error("Error saving user name: " + error);
     }
   };
 

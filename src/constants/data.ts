@@ -20,7 +20,7 @@ export const properties: Property[] = [
       latitude: 6.4474,
       longitude: 3.4723,
     },
-    images: [images.apartment[0], images.apartment[1], images.apartment[2]],
+    images: [...images.apartment],
     features: [
       "Swimming Pool",
       "24/7 Security",
@@ -61,7 +61,7 @@ export const properties: Property[] = [
       latitude: 6.4392,
       longitude: 3.5331,
     },
-    images: [...images.apartment],
+    images: [...images.detachedHouse],
     features: [
       "Boys' Quarters",
       "Smart Home",
@@ -102,7 +102,7 @@ export const properties: Property[] = [
       latitude: 9.0765,
       longitude: 7.4898,
     },
-    images: [...images.apartment],
+    images: [...images.shortlet_apartment],
     features: [
       "Fully Furnished",
       "Wi-Fi",
@@ -143,7 +143,7 @@ export const properties: Property[] = [
       latitude: 7.4325,
       longitude: 3.9167,
     },
-    images: [...images.apartment],
+    images: [...images.affordable_2_bedroom],
     features: [
       "Water Supply",
       "Gated Compound",
@@ -226,7 +226,7 @@ export const properties: Property[] = [
       latitude: 6.4281,
       longitude: 3.4219,
     },
-    images: [...images.apartment],
+    images: [...images.office_space],
     features: [
       "Conference Room",
       "Central Air Conditioning",
@@ -267,7 +267,7 @@ export const properties: Property[] = [
       latitude: 9.1101,
       longitude: 7.4056,
     },
-    images: [...images.apartment],
+    images: [...images.elegant_3_bedroom],
     features: [
       "Flexible Payment Plan",
       "Fitted Kitchen",
@@ -308,7 +308,7 @@ export const properties: Property[] = [
       latitude: 6.5841,
       longitude: 3.9834,
     },
-    images: [...images.apartment],
+    images: [...images.land],
     features: [
       "Registered Survey",
       "Good Road Network",
@@ -349,7 +349,7 @@ export const properties: Property[] = [
       latitude: 6.5158,
       longitude: 3.3711,
     },
-    images: [...images.apartment],
+    images: [...images.studio_apartment],
     features: [
       "Modern Interior",
       "Fitted Kitchen",
@@ -390,7 +390,7 @@ export const properties: Property[] = [
       latitude: 7.3575,
       longitude: 3.8553,
     },
-    images: [...images.apartment],
+    images: [...images.bungalow],
     features: [
       "Spacious Compound",
       "Modern Kitchen",
@@ -432,7 +432,7 @@ export const properties: Property[] = [
       latitude: 6.4491,
       longitude: 3.4356,
     },
-    images: [...images.apartment],
+    images: [...images.serviced_2_bedroom],
     features: ["Serviced", "Swimming Pool", "Gym", "24/7 Power", "Concierge"],
     rating: 4.8,
     reviewsCount: 22,
@@ -467,7 +467,7 @@ export const properties: Property[] = [
       latitude: 6.4667,
       longitude: 3.5667,
     },
-    images: [...images.apartment],
+    images: [...images.semi_detached_duplex],
     features: [
       "Fitted Kitchen",
       "Private Garden",
@@ -508,7 +508,7 @@ export const properties: Property[] = [
       latitude: 6.4419,
       longitude: 3.4912,
     },
-    images: [...images.apartment],
+    images: [...images.luxury_1_bedroom_shorlet],
     features: [
       "Fully Furnished",
       "Netflix",
@@ -549,7 +549,7 @@ export const properties: Property[] = [
       latitude: 9.0333,
       longitude: 7.5167,
     },
-    images: [...images.apartment],
+    images: [...images.duplex],
     features: [
       "Boys' Quarters",
       "Swimming Pool",
@@ -590,7 +590,7 @@ export const properties: Property[] = [
       latitude: 6.4478,
       longitude: 3.3592,
     },
-    images: [...images.apartment],
+    images: [...images.warehouse_space],
     features: [
       "Loading Bay",
       "High Ceiling",
@@ -631,7 +631,7 @@ export const properties: Property[] = [
       latitude: 6.5,
       longitude: 3.35,
     },
-    images: [...images.apartment],
+    images: [...images.affordable_2_bedroom],
     features: [
       "Tiled Floors",
       "Parking Space",
@@ -672,7 +672,7 @@ export const properties: Property[] = [
       latitude: 9.0833,
       longitude: 7.4833,
     },
-    images: [...images.apartment],
+    images: [...images.villa],
     features: [
       "Private Pool",
       "Home Cinema",
@@ -714,7 +714,7 @@ export const properties: Property[] = [
       latitude: 7.25,
       longitude: 5.195,
     },
-    images: [...images.apartment],
+    images: [...images.mini_flat],
     features: [
       "Prepaid Meter",
       "Water Supply",
@@ -755,7 +755,7 @@ export const properties: Property[] = [
       latitude: 6.6018,
       longitude: 3.3515,
     },
-    images: [...images.apartment],
+    images: [...images.Commercial_Shop],
     features: [
       "Shop Front",
       "Prepaid Meter",
@@ -796,7 +796,7 @@ export const properties: Property[] = [
       latitude: 4.8333,
       longitude: 6.9833,
     },
-    images: [...images.apartment],
+    images: [...images.bungalow_3_bedroom],
     features: [
       "Borehole",
       "Fenced Compound",

@@ -72,7 +72,7 @@ export default function FilterScreen() {
       {/* Header */}
       <View className="flex-row items-center justify-between border-b border-border px-4 py-3">
         <Pressable onPress={() => router.back()} hitSlop={8}>
-          <Ionicons name="arrow-back" size={22} color="#0F172A" />
+          <Ionicons name="chevron-back" size={22} color="#0F172A" />
         </Pressable>
         <Text className="text-lg font-bold text-content">Filters</Text>
         <View className="w-[22px]" />
