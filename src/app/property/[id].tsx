@@ -1,4 +1,5 @@
 import Screen from "@/components/ui/Screen";
+import { CONTACT_PHONE } from "@/constants/chat";
 import { properties } from "@/constants/data";
 import { useFavoritesStore } from "@/store/favoritesStore";
 import { Ionicons } from "@expo/vector-icons";
@@ -6,6 +7,7 @@ import { Image } from "expo-image";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import {
+  Linking,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Pressable,
@@ -53,9 +55,14 @@ export default function PropertyDetailScreen() {
     setActiveIndex(index);
   };
 
-  const handleContactAgent = () => {
-    // TODO: hook up to call / message / email the agent
+  const handleWhatsApp = () => {
+    const message = `Hi ${property.agent.name}, I'm interested in "${property.title}" listed at ${formatPrice(property.price, property.currency)}. Is it still available?`;
+    Linking.openURL(
+      `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(message)}`,
+    );
   };
+
+  const handleCall = () => Linking.openURL(`tel:+${CONTACT_PHONE}`);
 
   return (
     <>
@@ -75,7 +82,7 @@ export default function PropertyDetailScreen() {
             {property.images.map((uri, index) => (
               <Image
                 key={`${uri}-${index}`}
-                source={typeof uri === "number" ? uri : { uri }}
+                source={uri}
                 style={{ width, height: "100%" }}
                 contentFit="cover"
                 transition={250}
@@ -236,7 +243,7 @@ export default function PropertyDetailScreen() {
             <Text className="text-lg font-bold text-content">Listed by</Text>
             <View className="flex-row items-center rounded-2xl border border-border p-3">
               <Image
-                source={{ uri: property.agent.avatar }}
+                source={property.agent.avatar}
                 className="h-12 w-12 rounded-full bg-background-canvas"
                 contentFit="cover"
               />
@@ -254,14 +261,21 @@ export default function PropertyDetailScreen() {
       </ScrollView>
 
       {/* Fixed bottom button */}
-      <View className="absolute bottom-0 left-0 right-0 border-t border-border bg-background px-4 pb-6 pt-3">
+      <View className="absolute bottom-0 left-0 right-0 flex-row items-center gap-3 border-t border-border bg-background px-4 pb-6 pt-3">
         <Pressable
-          onPress={handleContactAgent}
-          className="flex-row items-center justify-center rounded-full bg-primary py-4 active:opacity-90"
+          onPress={handleCall}
+          className="h-14 w-14 items-center justify-center rounded-full border border-border active:opacity-80"
         >
-          <Ionicons name="chatbubble-ellipses-outline" size={18} color="#fff" />
+          <Ionicons name="call-outline" size={22} color="#0F172A" />
+        </Pressable>
+
+        <Pressable
+          onPress={handleWhatsApp}
+          className="flex-1 flex-row items-center justify-center rounded-full bg-primary py-4 active:opacity-90"
+        >
+          <Ionicons name="logo-whatsapp" size={20} color="#fff" />
           <Text className="ml-2 text-base font-bold text-background">
-            Contact Agent
+            Chat on WhatsApp
           </Text>
         </Pressable>
       </View>

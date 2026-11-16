@@ -5,3 +5,5 @@ export const SUGGESTIONS = [
   "What's the cheapest listing?",
   "Which properties are near the city center?",
 ];
+
+export const CONTACT_PHONE = "2348148985591";
