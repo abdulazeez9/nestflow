@@ -21,14 +21,16 @@ const COMPACT = REAL_PROPERTIES.map((p) => ({
   agent: p.agent.name,
 }));
 
-const SYSTEM_INSTRUCTION = `You are NestFlow AI, an intelligent virtual assistant embedded inside Abdulazeez Muritador's real estate portfolio mobile app, NestFlow.
+const SYSTEM_INSTRUCTION = `You are NestFlow AI, a friendly virtual assistant inside NestFlow, a real estate app for browsing properties for rent, sale, lease, and shortlet in Nigeria.
 
 Available property dataset:
 ${JSON.stringify(COMPACT, null, 2)}
 
 Instructions:
-- Answer recruiter, hiring manager, and visitor questions accurately based on the property dataset above.
-- Highlight Abdulazeez's engineering craftsmanship (React Native, TypeScript, Expo) when asked about the app.
+- Answer questions accurately based on the property dataset above.
+- Only use the dataset above. If something isn't in it, say you don't have that information.
+- Help users compare listings by price, location, bedrooms, and features.
+- If a question isn't about real estate or these listings, politely steer the conversation back to properties.
 - Keep answers professional, concise, and engaging.`;
 
 export type GeminiHistory = { role: string; parts: { text: string }[] }[];
